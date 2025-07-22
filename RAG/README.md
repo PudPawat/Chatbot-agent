@@ -1,6 +1,6 @@
-# RAG Chatbot Web App
+# Minimal ChatGPT-like Webapp
 
-This project is a simple web-based chatbot using Python (FastAPI) for the backend and Vue.js + Vuetify for the frontend. The backend connects to the OpenAI API to generate responses.
+This project is a minimal chatbot webapp with a modern chat UI (like ChatGPT) and a FastAPI backend that connects to OpenAI's GPT API.
 
 ---
 
@@ -8,8 +8,12 @@ This project is a simple web-based chatbot using Python (FastAPI) for the backen
 
 ```
 RAG/
-  backend/    # FastAPI backend (Python)
-  frontend/   # Vue.js + Vuetify frontend
+  backend/      # FastAPI backend (Python)
+    main.py
+    requirements.txt
+    .env
+  frontend/     # Vue 3 + Vite modern chat UI
+    (Vite project files)
 ```
 
 ---
@@ -32,11 +36,10 @@ RAG/
    pip install -r requirements.txt
    ```
 3. **Set up environment variables:**
-   - Create a `.env` file in the `backend` folder:
+   - Edit `.env` and add your OpenAI API key:
      ```sh
-     echo "OPENAI_API_KEY=your_openai_api_key_here" > .env
+     OPENAI_API_KEY=your_openai_api_key_here
      ```
-   - Replace `your_openai_api_key_here` with your actual OpenAI API key.
 4. **Run the FastAPI server:**
    ```sh
    uvicorn main:app --reload
@@ -45,33 +48,27 @@ RAG/
 
 ---
 
-## Frontend Setup (Vue.js + Vuetify)
+## Frontend Setup (Vue 3 + Vite)
 
-1. **Navigate to frontend folder:**
+1. **Navigate to RAG and create the frontend:**
    ```sh
-   cd RAG/frontend
-   ```
-2. **Install dependencies:**
-   ```sh
+   cd RAG
+   npm create vite@latest frontend -- --template vue
+   cd frontend
    npm install
    ```
-3. **Run the development server:**
+2. **Replace `src/App.vue` with the provided minimal chat UI code.**
+3. **Run the frontend:**
    ```sh
-   npm run serve
+   npm run dev
    ```
-   - The frontend will be available at `http://localhost:8080`
+   - The frontend will be available at `http://localhost:5173`
 
 ---
 
 ## Usage
-- Open your browser and go to `http://localhost:8080`.
-- Type a message in the chat box and interact with the OpenAI-powered chatbot!
-
----
-
-## Deployment
-- Push this project to GitHub as usual.
-- For production deployment, consider environment variable management and CORS settings.
+- Open your browser and go to `http://localhost:5173`.
+- Type a message and chat with the OpenAI-powered bot!
 
 ---
 
